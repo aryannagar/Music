@@ -1,0 +1,546 @@
+﻿<!doctype html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<style>
+.zoom {
+    padding: 0px;
+    transition: transform .2s;
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.zoom:hover {
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5); 
+}
+.container {
+    position: relative;
+    width: 50%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 650px;
+  height: 650px;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  border-radius: 7%;
+  background-color: #DB58B8;
+  color: yellow;
+  font-size: 25px;
+  padding: 16px 32px;
+}
+.parallax2 {
+    background-image: url("img/15.jpg");
+    min-height: 900px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax {
+    background-image: url("img/1.jpg");
+    min-height: 900px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+table {
+    border-collapse: collapse;
+    width: 30%;
+}
+th, td {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+tr:hover {
+    background-color:#f5f5f5;
+    color: dodgerblue;
+}
+#myBtn{
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: yellow;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+}
+#grad3 {
+    height: 80px;
+    background: #16bffd;
+    background: linear-gradient(to right, #BA64C7, #2CB3F1);
+    padding: 50px;
+}
+.input-container {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.icon {
+    padding: 10px;
+    background: dodgerblue;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
+.input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}
+.input-field:focus {
+    border: 2px solid dodgerblue;
+}
+.btn1 {
+    background-color: dodgerblue;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+.btn:hover {
+    opacity: 1;
+}
+video {
+    width: 80%;
+    height: 700px;
+    align-content: center;
+}
+.responsive {
+    width: 100%;
+    height: auto;
+}
+* {
+    box-sizing: border-box;
+}
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+.column {
+    flex: 25%;
+    flex: 25%;
+    margin: 0.5px;
+    max-width: 24.8%;
+    padding: 0 4px;
+}
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+}
+@media screen and (max-width: 800px) {
+    .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+#grad2 {
+    height: auto;
+    background: #16bffd;
+    background: linear-gradient(to right, #cb3066, #16bffd);
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.button {
+  border-radius: 4px;
+  background-color: #E68BCE;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 400px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover span {
+  padding-right: 25px;
+  color: yellow;
+}
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.icon-bar {
+    width: 100%;
+    background-color: dodgerblue;
+    overflow: auto;
+}
+.icon-bar a {
+    float: left;
+    width: 12.5%;
+    text-align: center;
+    padding: 12px 0;
+    transition: all 0.3s ease;
+    color: yellow   ;
+    font-size: 36px;
+}
+.icon-bar a:hover {
+    background-color: #DB58B8;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.topnav_cr {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 20px;
+}
+.topnav_cr a {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;   
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    margin: 20px;
+}
+.topnav_cr a:hover {
+    color: yellow;
+}
+#grad1 {
+    height: auto;
+    background: #16bffd;
+    background: linear-gradient(to right, #16bffd, #cb3066);
+}
+h1.sansserif {
+    font-family: Helvetica, sans-serif;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="css/uikit-rtl.css">
+<link rel="stylesheet" type="text/css" href="css/uikit-rtl.min.css">
+<link rel="stylesheet" type="text/css" href="css/uikit.css">
+<link rel="stylesheet" type="text/css" href="css/uikit.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<script src="js/uikit-icons.js"></script>
+<script src="js/uikit-icons.min.js"></script>
+<script src="js/uikit.js"></script>
+<script src="js/uikit.min.js"></script>
+</head>
+<body>
+<div id="grad1"><h1 align="center" class="sansserif" style="font-size:4vw; padding: 25px  0px 0px 0px;"><font color="yellow">ZARA LARSSON</font></h1>
+    <div class="topnav_cr" >
+        <a href="#home">Home</a>
+        <a href="#bio">Bio</a>
+        <a href="#music">Music</a>
+        <a href="#photos">Photos</a>
+        <a href="#video">Video</a>
+        <a href="#tour">Tour</a>
+        <a href="#riders">Riders</a>
+        <a href="#connect">Connect</a>
+    </div>
+</div>
+<div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow="animation: push">
+
+    <ul class="uk-slideshow-items">
+        <li>
+            <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-top-right">
+                <img src="img/10.jpg" alt="" uk-cover>
+            </div>
+        </li>
+        <li>
+            <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-bottom-left">
+                <img src="img/8.jpg" alt="" uk-cover>
+            </div>
+        </li>
+        <li>
+            <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-bottom-right">
+                <img src="img/11.jpg" alt="" uk-cover>
+            </div>
+        </li>
+        <li>
+            <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center-left">
+                <img src="img/14.jpg" alt="" uk-cover>
+            </div>
+        </li>
+        <li>
+            <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-top-right">
+                <img src="img/9.jpg" alt="" uk-cover>
+            </div>
+        </li>
+    </ul>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
+</div>
+<div class="parallax" width="100%" height="900"></div>
+<div style="background-color: #DB58B8">
+<br>
+<p style="font-size: 40px; color: white; text-align: center; padding: 40px 0px;"><i>Singer | songwriter</i></p>
+<h1 align="center" class="sansserif" style="font-size:4vw; padding: 25px  0px 0px 0px;"><font color="yellow">B I O</font></h1>
+<div class="row">
+<div class="col-sm-7">
+<p style="color: white; font-size: 17px; padding: 0px 0px 0px 60px;">
+Zara Maria Larsson (born 16 December 1997) is a Swedish singer and songwriter. At the age of 10, she achieved national fame in Sweden for winning the 2008 season of the talent show Talang, the Swedish version of British TV's Got Talent. Four years later, in 2012, Larsson signed with the record label TEN Music Group and released her debut EP album Introducing in January 2013. The single "Uncover" topped the music charts in Scandinavia: Sweden, Denmark, and Norway. In February 2013, "Uncover" was certified platinum by Universal Music Sweden. In July 2013, her EP Introducing was certified triple platinum in the country. Larsson signed a three-year contract with Epic Records in the United States in April 2013. In 2016, she performed at the opening and closing ceremonies for UEFA Euro in France.
+<br>
+<br>
+Four years after her first album, Larsson's debut international album So Good was released on 17 March 2017 and entered at number seven on the UK Albums Chart. It produced eight singles: "Lush Life", "Never Forget You", "Ain't My Fault", "I Would Like", "So Good", "Don't Let Me Be Yours", "Only You", and "Symphony", a song by Clean Bandit. Almost all the album's singles reached the top 15 in the UK. "Never Forget You" peaked in the US at number 13 on the US Billboard Hot 100, giving Larsson and English singer MNEK their first entries on the chart. Similarly, "Symphony" became Larsson's first number one single on the UK Singles Chart.
+</p>
+</div>
+<div class="col-sm-5">
+<a href="https://en.wikipedia.org/wiki/Zara_Larsson" target="_blank"><button class="button"><span>View Full BIO </span></button></a>
+<br>
+<a href="https://www.ten.se/artists/zara-larsson/" target="_blank"><button class="button"><span>View Press Release </span></button></a>
+<br>
+<a href="https://www.ten.se/artists/zara-larsson/" target="_blank"><button class="button"><span>View Press Quotes </span></button></a>
+</div>
+</div>
+<br>
+<br>
+</div>
+ 
+<img src="img/93.png" width="100%">
+<div style="background-color: white">
+<h1 align="center" class="sansserif" style="font-size:4vw; padding: 25px  0px 0px 0px;"><font color="dodgerblue">M U S I C</font></h1>
+<div class="container">
+<img src="img/2.jpg" alt="Zara Larson<br>I Would Like" class="image" style=" width:650 height:650"; content-align="center">
+<div class="middle">
+<div class="text"><b><i>Zara Larson <br><br>"I Would Like"</i></b></div>
+</div>
+</div>
+<br>
+<div class="container">
+<table class="table">
+<tbody>
+<tr>
+<td>1</td>
+<td>Lush Life</td>
+<td>3:22</td>
+</tr>
+<tr>
+<td>2</td>
+<td>DarkSide</td>
+<td>3:48</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Never Forget You</td>
+<td>4:16</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Rooftop</td>
+<td>3:05</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Ain't My Fault</td>
+<td>3:44</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+</div>
+<div id="grad2"><h1 align="center" class="sansserif" style="font-size:4vw; padding: 25px  0px 0px 0px;"><font color="yellow">P H O T O S</font></h1>
+<div class="row"> 
+  <div class="column">
+    <div class="zoom">
+    <img src="img/3.jpg" style="width:100%">
+      </div>
+      <div class="zoom">
+    <img src="img/10.jpg" style="width:100%">
+      </div>
+      <div class="zoom">
+    <img src="img/5.jpg" style="width:100%">
+    </div>
+  </div>
+  <div class="column">
+    <div class="zoom">
+    <img src="img/8.jpg" style="width:100%">
+    </div>
+    <div class="zoom">
+    <img src="img/7.jpg" style="width:100%">
+    </div>
+    <div class="zoom">
+    <img src="img/6.jpg" style="width:100%">
+    </div>
+  </div>  
+  <div class="column">
+    <div class="zoom">
+    <img src="img/9.jpg" style="width:100%">
+    </div>
+    <div class="zoom">
+    <img src="img/13.jpg" style="width:100%">
+    </div>
+    <div class="zoom">
+    <img src="img/11.jpg" style="width:100%">
+    </div>
+  </div>
+  <div class="column">
+    <div class="zoom">
+    <img src="img/12.jpg" style="width:100%">
+    </div>
+    <div class="zoom">
+    <img src="img/4.jpg" style="width:100%">
+    </div>
+    <div class="zoom">
+    <img src="img/14.jpg" style="width:100%">
+    </div>
+  </div>  
+</div>
+<br>
+<br>
+<a href="https://www.google.co.in/search?hl=en&biw=1600&bih=769&tbm=isch&sa=1&ei=Ygn3WsyOH8yy0gSio7-IAw&q=zara+larsson+hd+wallpaper+&oq=zara+larsson+hd+wallpaper+&gs_l=img.3...8210.8210.0.8880.1.1.0.0.0.0.297.297.2-1.1.0....0...1c.1.64.img..0.0.0....0.R3hUSwUchxA" target="_blank"><button class="button"><span>Download Hi-Res Photos </span></button></a> 
+<br>
+<br>
+<br>
+</div>
+<div style="background-color: #0BA8E2">
+<h1 align="center" class="sansserif" style="font-size:4vw; padding: 25px  0px 0px 0px;"><font color="yellow">V I D E O</font></h1>
+<div class="container">
+<video controls autoplay>
+<source src="video/Zara%20Larsson%20-%20Lush%20Life.mp4" type="video/mp4">
+</video>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+<div style="background-color: white">
+<h1 align="center" class="sansserif" style="font-size:4vw; padding: 25px  0px 0px 0px;"><font color="dodgerblue">T O U R</font></h1>
+<div class="row">
+<div class="col-sm-4">
+<a href="https://www.viagogo.com/in/Concert-Tickets/Rock-and-Pop/Zara-Larsson-Tickets?AffiliateID=49&adposition=1t1&PCID=PSINGOOCONZARAF9CD451902C-000000&AdID=259216215100&MetroRegionID=&psc=&psc=&ps=&ps=&ps_p=0&ps_c=831032044&ps_ag=45307966009&ps_tg=kwd-295297844839&ps_ad=259216215100&ps_adp=1t1&ps_fi=&ps_fi=&ps_li=&ps_li=&ps_lp=9061709&ps_n=g&ps_d=c&gclid=Cj0KCQjwre_XBRDVARIsAPf7zZhMkNeK86oBQEGUrSStSYHR9ggdYQsRh9V0rgMSyvPyHRu0uquRtsEaAuF2EALw_wcB" target="_blank"><button class="button"><span>View Last Tour </span></button></a>
+</div>
+<div class="col-sm-4">
+<a href="https://www.viagogo.com/in/Concert-Tickets/Rock-and-Pop/Zara-Larsson-Tickets?AffiliateID=49&adposition=1t1&PCID=PSINGOOCONZARAF9CD451902C-000000&AdID=259216215100&MetroRegionID=&psc=&psc=&ps=&ps=&ps_p=0&ps_c=831032044&ps_ag=45307966009&ps_tg=kwd-295297844839&ps_ad=259216215100&ps_adp=1t1&ps_fi=&ps_fi=&ps_li=&ps_li=&ps_lp=9061709&ps_n=g&ps_d=c&gclid=Cj0KCQjwre_XBRDVARIsAPf7zZhMkNeK86oBQEGUrSStSYHR9ggdYQsRh9V0rgMSyvPyHRu0uquRtsEaAuF2EALw_wcB" target="_blank"><button class="button"><span>View List </span></button></a>
+</div>
+<div class="col-sm-4">
+<a href="https://www.viagogo.com/in/Concert-Tickets/Rock-and-Pop/Zara-Larsson-Tickets?AffiliateID=49&adposition=1t1&PCID=PSINGOOCONZARAF9CD451902C-000000&AdID=259216215100&MetroRegionID=&psc=&psc=&ps=&ps=&ps_p=0&ps_c=831032044&ps_ag=45307966009&ps_tg=kwd-295297844839&ps_ad=259216215100&ps_adp=1t1&ps_fi=&ps_fi=&ps_li=&ps_li=&ps_lp=9061709&ps_n=g&ps_d=c&gclid=Cj0KCQjwre_XBRDVARIsAPf7zZhMkNeK86oBQEGUrSStSYHR9ggdYQsRh9V0rgMSyvPyHRu0uquRtsEaAuF2EALw_wcB" target="_blank"><button class="button"><span>Book Ticket </span></button></a>
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="parallax2" width="100%" height="1000"></div>
+<div class="icon-bar">
+  <a href="https://www.spotify.com"><i class="fab fa-spotify"></i></a> 
+  <a href="https://www.apple.com/apple-music/"><i class="fab fa-apple"></i></a> 
+  <a href="https://www.amazon.com"><i class="fab fa-amazon"></i></a> 
+  <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a> 
+  <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a> 
+  <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a> 
+  <a href="https://soundcloud.com/"><i class="fab fa-soundcloud"></i></a> 
+</div>
+<div style="background-color: white">
+<h1 align="center" class="sansserif" style="font-size:4vw; padding: 25px  0px 0px 0px;"><font color="dodgerblue">C O N N E C T</font></h1>
+<h4 align="center">Subscribe for updates</h4>
+<form action="/action_page.php" style="max-width:500px;margin:auto">
+<div class="input-container">
+<i class="fa fa-user icon"></i>
+<input class="input-field" type="text" placeholder="Username" name="usrnm" required>
+</div>
+<div class="input-container">
+<i class="fa fa-envelope icon"></i>
+<input class="input-field" type="text" placeholder="Email" name="email" required>
+</div>
+<div class="input-container">
+<i class="fa fa-key icon"></i>
+<input class="input-field" type="password" placeholder="Password" name="psw" required>
+</div>
+<button type="submit" class="btn1">Register</button>
+</form>
+</div>
+<br>
+<br>
+<br>
+<br>
+<img src="img/100.png" width="100%">
+<button onclick="topFunction()" id="myBtn" title="Go to top"><img src="img/94.png"></button>
+<div id="grad3"><p align="center" class="sansserif" style="font-size:1.5vw";><font color="white">© 2018 Zara Larson, Proudly created by <u><i>Aryan Nagar</i></u></font></p></div>
+<script>
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
+</body>
+</html>
